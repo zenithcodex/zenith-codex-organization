@@ -6,7 +6,7 @@ import { Github } from "lucide-react";
 export default function GitHubBadge() {
   return (
     <motion.a
-      href="https://github.com"
+      href="https://github.com/trahoangdev"
       target="_blank"
       rel="noopener noreferrer"
       initial={{ opacity: 0, y: 20 }}
@@ -18,9 +18,9 @@ export default function GitHubBadge() {
         <Github className="w-5 h-5 text-zenith-text" />
         <span className="absolute top-0 right-0 w-3 h-3 bg-zenith-green rounded-full animate-pulse" />
       </div>
-      
+
       <div className="flex flex-col overflow-hidden">
-        <motion.span 
+        <motion.span
           className="text-xs font-bold text-zenith-white group-hover:text-zenith-cyan transition-colors relative"
           whileHover={{ x: [0, -2, 2, -2, 0], transition: { duration: 0.2 } }}
         >

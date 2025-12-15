@@ -1,0 +1,21 @@
+---
+title: "Latency Reduced by 40% in Core Grid"
+date: "2024.04.28"
+version: "v2.3.9"
+category: "Performance"
+description: "Major refactoring of the event loop results in significant performance gains."
+---
+
+# Latency Reduced by 40% in Core Grid
+
+Through a series of aggressive optimizations in our event handling system, we have managed to reduce the average round-trip time (RTT) across the Core Grid by approximately **40%**.
+
+## Optimization Strategy
+
+1.  **Zero-Copy Networking**: We removed several unnecessary buffer copies in the packet processing pipeline.
+2.  **Lock-Free Data Structures**: Migrated critical state management to lock-free queues, reducing thread contention.
+3.  **IO-Uring Adoption**: Switched to `io_uring` for asynchronous I/O operations on supported Linux kernels.
+
+> "Speed is a feature." - The Collective
+
+This update is automatically propagated to all nodes running version `v2.3.9` or higher.
