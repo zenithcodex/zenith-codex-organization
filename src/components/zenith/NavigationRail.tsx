@@ -1,20 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Terminal, Cpu, Layers, FileText, Users } from "lucide-react";
-
-const navItems = [
-  { icon: Terminal, label: "Home", href: "#" },
-  { icon: FileText, label: "Manifesto", href: "#manifesto" },
-  { icon: Layers, label: "Projects", href: "#projects" },
-  { icon: Cpu, label: "Stack", href: "#stack" },
-  { icon: Users, label: "Team", href: "#team" },
-  { icon: Github, label: "Source", href: "https://github.com" },
-];
+import { navItems } from "@/config/navigation";
 
 export default function NavigationRail() {
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ x: -100 }}
       animate={{ x: 0 }}
       transition={{ delay: 1, duration: 0.5 }}
@@ -30,6 +21,7 @@ export default function NavigationRail() {
             key={index}
             href={item.href}
             className="group relative flex items-center justify-center w-12 h-12 text-zenith-text/50 hover:text-zenith-cyan transition-colors"
+            aria-label={item.label}
           >
             <item.icon className="w-6 h-6" />
             <span className="absolute left-14 bg-zenith-surface border border-zenith-cyan/30 px-2 py-1 text-xs font-mono text-zenith-cyan opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">

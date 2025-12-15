@@ -3,32 +3,8 @@
 import { motion } from "framer-motion";
 import { Github, Twitter, Code } from "lucide-react";
 
-const team = [
-  {
-    name: "Alex Chen",
-    role: "Lead Architect",
-    status: "online",
-    image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&h=400&fit=crop",
-  },
-  {
-    name: "Sarah Jones",
-    role: "Systems Engineer",
-    status: "coding",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-  },
-  {
-    name: "Marcus Void",
-    role: "Security Ops",
-    status: "offline",
-    image: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?w=400&h=400&fit=crop",
-  },
-  {
-    name: "Elena R.",
-    role: "Frontend Lead",
-    status: "online",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
-  },
-];
+import Image from "next/image";
+import { team } from "@/data/team";
 
 export default function TeamSection() {
   return (
@@ -55,19 +31,19 @@ export default function TeamSection() {
               className="group relative"
             >
               <div className="relative aspect-square overflow-hidden border border-zenith-surface bg-zenith-surface mb-4">
-                <img 
-                  src={member.image} 
+                <Image
+                  src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
                 <div className="absolute inset-0 bg-zenith-cyan/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mix-blend-overlay" />
-                
+
                 {/* Status Indicator */}
                 <div className="absolute top-2 right-2 flex items-center gap-2 bg-black/50 backdrop-blur-sm px-2 py-1 border border-white/10">
-                  <div className={`w-1.5 h-1.5 rounded-full ${
-                    member.status === 'online' ? 'bg-zenith-green' : 
+                  <div className={`w-1.5 h-1.5 rounded-full ${member.status === 'online' ? 'bg-zenith-green' :
                     member.status === 'coding' ? 'bg-zenith-cyan' : 'bg-red-500'
-                  }`} />
+                    }`} />
                   <span className="text-[10px] font-mono uppercase text-white/70">{member.status}</span>
                 </div>
               </div>
@@ -80,9 +56,15 @@ export default function TeamSection() {
               </p>
 
               <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-                <Github className="w-4 h-4 text-zenith-text/50 hover:text-zenith-white cursor-pointer" />
-                <Twitter className="w-4 h-4 text-zenith-text/50 hover:text-zenith-white cursor-pointer" />
-                <Code className="w-4 h-4 text-zenith-text/50 hover:text-zenith-white cursor-pointer" />
+                <a href="#" aria-label={`View ${member.name}'s GitHub profile`} className="text-zenith-text/50 hover:text-zenith-white transition-colors">
+                  <Github className="w-4 h-4" />
+                </a>
+                <a href="#" aria-label={`View ${member.name}'s Twitter profile`} className="text-zenith-text/50 hover:text-zenith-white transition-colors">
+                  <Twitter className="w-4 h-4" />
+                </a>
+                <a href="#" aria-label={`View ${member.name}'s Portfolio`} className="text-zenith-text/50 hover:text-zenith-white transition-colors">
+                  <Code className="w-4 h-4" />
+                </a>
               </div>
             </motion.div>
           ))}

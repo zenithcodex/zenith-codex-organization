@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Radio } from "lucide-react";
+import ContactForm from "@/components/zenith/ContactForm";
 
 export default function JoinSection() {
   return (
@@ -23,21 +24,11 @@ export default function JoinSection() {
         </h2>
 
         <p className="font-mono text-zenith-text/70 max-w-2xl mx-auto mb-12 text-lg">
-          The Zenith Codex is always looking for elite engineers. 
+          The Zenith Codex is always looking for elite engineers.
           Join the collective and help us build the infrastructure of tomorrow.
         </p>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="group relative inline-flex items-center gap-4 bg-zenith-cyan text-zenith-black px-8 py-4 font-mono font-bold uppercase tracking-wider overflow-hidden"
-        >
-          <span className="relative z-10">Initialize Uplink</span>
-          <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
-          
-          {/* Glitch Effect on Hover */}
-          <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-0" />
-        </motion.button>
+        <ContactForm />
       </div>
 
       {/* Background Decoration */}

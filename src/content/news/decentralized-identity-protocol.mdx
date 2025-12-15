@@ -1,0 +1,38 @@
+---
+title: "Decentralized Identity Protocol"
+date: "2024.05.20"
+version: "v2.4.2"
+category: "Security"
+description: "A sovereign identity layer for the new web. Own your data, forever."
+---
+
+# Decentralized Identity Protocol
+
+Identity on the old web was broken. Fragmented. Owned by corporations. Today, we launch our **Sovereign ID Protocol (SIP)**.
+
+## The Problem
+
+Your digital existence is currently rented. Platforms can revoke your access at any time. SIP changes this by anchoring your identity to an immutable ledger that *you* control.
+
+## Technical Specs
+
+*   **DID Compliance**: Fully compatible with W3C Decentralized Identifier standards.
+*   **Zero-Knowledge Proofs**: Prove you are over 18 or a citizen of a specific region without revealing your birthdate or address.
+*   **Cross-Chain**: Works seamlessly across Ethereum, Solana, and Cosmos.
+
+> "Identity is the final frontier of digital freedom."
+
+### Integration Guide
+
+Developers can integrate SIP into their dApps using our lightweight SDK.
+
+```typescript
+import { ZenithID } from '@zenith-codex/sip-sdk';
+
+const user = await ZenithID.connect();
+if (user.hasCredential('VerifiableDeveloper')) {
+    grantAccess('AdminPanel');
+}
+```
+
+Join the revolution. Reclaim yourself.

@@ -34,7 +34,7 @@ export default function FooterTerminal() {
         <div>
           <h4 className="font-heading font-bold text-2xl mb-6">Zenith Codex</h4>
           <div className="font-mono text-sm text-zenith-text/50 space-y-2">
-            <p>© 2024 Zenith Codex Organization.</p>
+            <p>© {new Date().getFullYear()} Zenith Codex Organization.</p>
             <p>All systems operational.</p>
           </div>
         </div>
@@ -46,7 +46,7 @@ export default function FooterTerminal() {
             <div className="w-3 h-3 rounded-full bg-green-500/50" />
             <span className="ml-auto text-zenith-text/30">bash</span>
           </div>
-          
+
           <div className="mt-6 space-y-2">
             {lines.map((line, index) => (
               <motion.div
