@@ -40,6 +40,28 @@ export default function Home() {
       </div>
 
       <GitHubBadge />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Zenith Codex",
+            url: "https://zenith-codex.com",
+            logo: "https://zenith-codex.com/og-image.jpg",
+            sameAs: [
+              "https://github.com/zenith-codex",
+              "https://twitter.com/zenithcodex",
+            ],
+            contactPoint: {
+              "@type": "ContactPoint",
+              email: "contact@zenith-codex.com",
+              contactType: "customer support",
+            },
+          }),
+        }}
+      />
     </main>
   );
 }

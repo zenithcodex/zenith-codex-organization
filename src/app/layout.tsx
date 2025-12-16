@@ -25,6 +25,7 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://zenith-codex.com"),
   title: {
     default: "Zenith Codex",
     template: "%s | Zenith Codex",
@@ -59,6 +60,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+
 };
 
 export default function RootLayout({

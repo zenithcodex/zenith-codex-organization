@@ -68,6 +68,35 @@ export default function NewsDetailPage({ params }: NewsPageProps) {
                     <MDXRemote source={post.content} />
                 </div>
             </article>
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BlogPosting",
+                        headline: post.frontmatter.title,
+                        datePublished: post.frontmatter.date, // Format might need adjustment if not ISO
+                        description: post.frontmatter.description,
+                        author: {
+                            "@type": "Organization",
+                            name: "Zenith Codex",
+                        },
+                        publisher: {
+                            "@type": "Organization",
+                            name: "Zenith Codex",
+                            logo: {
+                                "@type": "ImageObject",
+                                url: "https://zenith-codex.com/og-image.jpg"
+                            }
+                        },
+                        mainEntityOfPage: {
+                            "@type": "WebPage",
+                            "@id": `https://zenith-codex.com/news/${params.slug}`
+                        }
+                    }),
+                }}
+            />
         </div>
     );
 }

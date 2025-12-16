@@ -127,6 +127,28 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     </ul>
                 </div>
             </div>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "SoftwareApplication",
+                        name: project.title,
+                        description: project.description,
+                        applicationCategory: "DeveloperApplication",
+                        operatingSystem: "Independent",
+                        offers: {
+                            "@type": "Offer",
+                            price: "0",
+                            priceCurrency: "USD",
+                        },
+                        author: {
+                            "@type": "Organization",
+                            name: "Zenith Codex",
+                        },
+                    }),
+                }}
+            />
         </div>
     );
 }
