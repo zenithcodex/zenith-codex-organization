@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Radio } from "lucide-react";
+import { Radio } from "lucide-react";
 import ContactForm from "@/components/zenith/ContactForm";
 
 export default function JoinSection() {
@@ -16,16 +16,22 @@ export default function JoinSection() {
           className="inline-flex items-center gap-2 border border-zenith-green/30 bg-zenith-green/10 px-4 py-2 rounded-full mb-8"
         >
           <Radio className="w-4 h-4 text-zenith-green animate-pulse" />
-          <span className="font-mono text-xs text-zenith-green tracking-widest uppercase">Transmission Open</span>
+          <span className="font-mono text-xs text-zenith-green tracking-widest uppercase">
+            Transmission Open
+          </span>
         </motion.div>
 
-        <h2 className="text-5xl md:text-7xl font-heading font-bold uppercase mb-8 tracking-tight">
-          Ready to <span className="text-stroke-cyan text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">Architect</span> the Future?
+        <h2 className="text-5xl md:text-7xl font-heading font-bold uppercase mb-8 tracking-tight text-zenith-text">
+          Ready to{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-b from-zenith-cyan to-zenith-cyan/50">
+            Architect
+          </span>{" "}
+          the Future?
         </h2>
 
         <p className="font-mono text-zenith-text/70 max-w-2xl mx-auto mb-12 text-lg">
-          The Zenith Codex is always looking for elite engineers.
-          Join the collective and help us build the infrastructure of tomorrow.
+          The Zenith Codex is always looking for elite engineers. Join the collective and help us
+          build the infrastructure of tomorrow.
         </p>
 
         <ContactForm />

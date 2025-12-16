@@ -67,3 +67,6 @@ storybook-static/
 
 # Testing
 /coverage
+
+#markdown
+*.md

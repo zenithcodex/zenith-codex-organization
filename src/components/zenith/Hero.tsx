@@ -17,12 +17,12 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: [0.34, 1.56, 0.64, 1] }}
           className="relative"
         >
-          <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-display font-black tracking-tighter text-zenith-white leading-[0.85] uppercase">
+          <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-display font-black tracking-tighter text-zenith-text leading-[0.85] uppercase">
             Zenith
             <br />
             <span className="relative">
               Codex
-              <motion.div 
+              <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
                 transition={{ delay: 0.5, duration: 0.8 }}
@@ -40,12 +40,13 @@ export default function Hero() {
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-[1px] bg-zenith-green" />
-            <span className="text-zenith-green font-mono text-sm tracking-widest uppercase">System Online</span>
+            <span className="text-zenith-green font-mono text-sm tracking-widest uppercase">
+              System Online
+            </span>
           </div>
           <p className="text-xl md:text-2xl font-mono text-zenith-text/80 leading-relaxed">
-            Building infrastructure for the next paradigm. 
-            <br />
-            A collective of engineers architecting the future.
+            Building infrastructure for the next paradigm.
+            <br />A collective of engineers architecting the future.
           </p>
         </motion.div>
       </div>
