@@ -60,11 +60,120 @@
 }
 
 @layer base {
+  :root {
+    /* Zenith Design System - Light Mode */
+    --zenith-base: #f5f5f7;
+    --zenith-surface: #ffffff;
+    --zenith-cyan: #0891b2;
+    --zenith-green: #16a34a;
+    --zenith-purple: #7c3aed;
+    --zenith-text: #1a1a1d;
+    --zenith-text-muted: #6b7280;
+  }
+
+  .dark {
+    /* Zenith Design System - Dark Mode (Default) */
+    --zenith-base: #0d0d0f;
+    --zenith-surface: #1a1a1d;
+    --zenith-cyan: #00f0ff;
+    --zenith-green: #39ff14;
+    --zenith-purple: #a855f7;
+    --zenith-text: #e8e8e8;
+    --zenith-text-muted: #9ca3af;
+  }
+
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-zenith-base text-zenith-text font-body;
+    @apply bg-zenith-base text-zenith-text font-body transition-colors duration-300;
+  }
+}
+
+@layer components {
+  /* Custom prose styles for Zenith theme */
+  .prose-zenith {
+    --tw-prose-body: var(--zenith-text);
+    --tw-prose-headings: var(--zenith-text);
+    --tw-prose-lead: var(--zenith-text);
+    --tw-prose-links: var(--zenith-cyan);
+    --tw-prose-bold: var(--zenith-text);
+    --tw-prose-counters: var(--zenith-text-muted);
+    --tw-prose-bullets: var(--zenith-text-muted);
+    --tw-prose-hr: var(--zenith-surface);
+    --tw-prose-quotes: var(--zenith-text);
+    --tw-prose-quote-borders: var(--zenith-cyan);
+    --tw-prose-captions: var(--zenith-text-muted);
+    --tw-prose-code: var(--zenith-green);
+    --tw-prose-pre-code: var(--zenith-text);
+    --tw-prose-pre-bg: var(--zenith-surface);
+    --tw-prose-th-borders: var(--zenith-surface);
+    --tw-prose-td-borders: var(--zenith-surface);
+  }
+
+  .prose-zenith p {
+    font-family: var(--font-jetbrains-mono), monospace;
+    color: var(--zenith-text);
+    opacity: 0.8;
+  }
+
+  .prose-zenith h1,
+  .prose-zenith h2,
+  .prose-zenith h3,
+  .prose-zenith h4 {
+    font-family: var(--font-space-grotesk), sans-serif;
+    color: var(--zenith-text);
+    font-weight: 700;
+  }
+
+  .prose-zenith a {
+    color: var(--zenith-cyan);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .prose-zenith a:hover {
+    opacity: 0.8;
+  }
+
+  .prose-zenith code {
+    color: var(--zenith-green);
+    background: var(--zenith-surface);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+  }
+
+  .prose-zenith pre {
+    background: var(--zenith-surface);
+    border: 1px solid var(--zenith-surface);
+    border-radius: 0.5rem;
+  }
+
+  .prose-zenith pre code {
+    background: transparent;
+    padding: 0;
+    color: var(--zenith-text);
+  }
+
+  .prose-zenith blockquote {
+    border-left-color: var(--zenith-cyan);
+    color: var(--zenith-text);
+    opacity: 0.9;
+  }
+
+  .prose-zenith strong {
+    color: var(--zenith-text);
+  }
+
+  .prose-zenith ul > li::marker,
+  .prose-zenith ol > li::marker {
+    color: var(--zenith-cyan);
+  }
+
+  .prose-zenith hr {
+    border-color: var(--zenith-surface);
   }
 }
 
@@ -80,7 +189,7 @@
     background-size: 100% 4px;
     pointer-events: none;
   }
-  
+
   .noise {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
     pointer-events: none;

@@ -20,7 +20,7 @@ const stackItems = [
     category: "Data Systems",
     icon: Database,
     items: ["PostgreSQL", "Redis", "ClickHouse", "Vector DB"],
-    color: "text-purple-400",
+    color: "text-zenith-purple",
   },
   {
     category: "Security & Ops",
@@ -32,10 +32,13 @@ const stackItems = [
 
 export default function StackSection() {
   return (
-    <section id="stack" className="py-24 px-8 md:px-16 lg:px-24 ml-0 md:ml-20 border-t border-zenith-surface">
+    <section
+      id="stack"
+      className="py-24 px-8 md:px-16 lg:px-24 ml-0 md:ml-20 border-t border-zenith-surface"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="flex items-end justify-between mb-16">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold uppercase tracking-wide">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold uppercase tracking-wide text-zenith-text">
             System Architecture
           </h2>
           <div className="flex items-center gap-2 text-zenith-text/50 font-mono text-sm">
@@ -52,31 +55,35 @@ export default function StackSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="relative group bg-zenith-base border border-zenith-surface p-8 overflow-hidden"
+              className="relative group bg-zenith-base border border-zenith-surface p-8 overflow-hidden rounded-lg"
             >
               {/* Background Grid Effect */}
-              <div className="absolute inset-0 opacity-10 pointer-events-none" 
-                   style={{ 
-                     backgroundImage: 'linear-gradient(to right, #333 1px, transparent 1px), linear-gradient(to bottom, #333 1px, transparent 1px)',
-                     backgroundSize: '2rem 2rem'
-                   }} 
+              <div
+                className="absolute inset-0 opacity-10 pointer-events-none"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
+                  backgroundSize: "2rem 2rem",
+                }}
               />
 
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className={`p-3 bg-zenith-surface border border-zenith-surface rounded-sm ${group.color}`}>
+                  <div
+                    className={`p-3 bg-zenith-surface border border-zenith-surface rounded-lg ${group.color}`}
+                  >
                     <group.icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-mono font-bold uppercase tracking-wider">
+                  <h3 className="text-xl font-mono font-bold uppercase tracking-wider text-zenith-text">
                     {group.category}
                   </h3>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   {group.items.map((item, i) => (
-                    <div 
+                    <div
                       key={i}
-                      className="flex items-center gap-2 font-mono text-sm text-zenith-text/70 hover:text-zenith-white transition-colors cursor-default"
+                      className="flex items-center gap-2 font-mono text-sm text-zenith-text/70 hover:text-zenith-text transition-colors cursor-default"
                     >
                       <Code className="w-3 h-3 opacity-30" />
                       <span>{item}</span>
