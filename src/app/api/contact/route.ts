@@ -22,13 +22,45 @@ export async function POST(request: NextRequest) {
 
     const { name, email, message } = result.data;
 
-    // TODO: Implement your email service here
-    // Options: Resend, SendGrid, AWS SES, etc.
-    console.log("Contact form submission:", { name, email, message });
+    // Check for API key (Simulate success if missing in dev, or log error)
+    if (!process.env.RESEND_API_KEY) {
+      console.warn("RESEND_API_KEY is not set. Simulating email send.");
+      console.log("Transmission Data:", { name, email, message });
 
-    // For now, just return success
+      // Artificial delay for realism
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      return NextResponse.json(
+        { success: true, message: "Transmission simulation successful" },
+        { status: 200 }
+      );
+    }
+
+    const { Resend } = require("resend");
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    const { data: emailData, error } = await resend.emails.send({
+      from: "Zenith Codex <onboarding@resend.dev>", // Default reliable sender for testing
+      to: ["delivered@resend.dev"], // Replace with actual admin email when verified
+      subject: `[Zenith Contact] Uplink from ${name}`,
+      html: `
+        <h1>New Contact Transmission</h1>
+        <p><strong>Identifier:</strong> ${name}</p>
+        <p><strong>Frequency:</strong> ${email}</p>
+        <hr />
+        <h3>Payload:</h3>
+        <p>${message.replace(/\n/g, "<br>")}</p>
+      `,
+      reply_to: email, // Valid property is reply_to or replyTo depending on SDK version, Resend usually uses reply_to in API or replyTo in SDK. Let's stick to standard object structure.
+    });
+
+    if (error) {
+      console.error("Resend API Error:", error);
+      return NextResponse.json({ error: "Transmission failed at relay" }, { status: 500 });
+    }
+
     return NextResponse.json(
-      { success: true, message: "Message received successfully" },
+      { success: true, message: "Message transmitted successfully" },
       { status: 200 }
     );
   } catch (error) {

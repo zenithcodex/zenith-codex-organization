@@ -69,9 +69,12 @@ export default function NewsDetailPage({ params }: NewsPageProps) {
               </span>
             )}
             {post.frontmatter.category && (
-              <span className="text-zenith-cyan text-xs uppercase tracking-widest">
+              <Link
+                href={`/news/category/${post.frontmatter.category.toLowerCase().replace(/\s+/g, "-")}`}
+                className="text-zenith-cyan text-xs uppercase tracking-widest hover:underline decoration-zenith-cyan/50 underline-offset-4"
+              >
                 {post.frontmatter.category}
-              </span>
+              </Link>
             )}
           </div>
           <h1 className="text-3xl md:text-5xl font-heading font-bold text-zenith-text mb-6 leading-tight">

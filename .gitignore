@@ -68,5 +68,14 @@ storybook-static/
 # Testing
 /coverage
 
+# PWA
+public/sw.js
+public/sw.js.map
+public/workbox-*.js
+public/workbox-*.js.map
+
+# Contentlayer
+.contentlayer
+
 #markdown
 *.md

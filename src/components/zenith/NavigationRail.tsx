@@ -126,7 +126,7 @@ export default function NavigationRail() {
 
       {/* Footer text */}
       <div className="flex flex-col items-center gap-2 text-[10px] font-mono text-zenith-text/40">
-        <span>EST. 2024</span>
+        <span>EST. 2025</span>
         <span className="text-zenith-cyan/60">V.1.0.4</span>
       </div>
     </motion.nav>

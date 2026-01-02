@@ -87,18 +87,18 @@ export default function MobileNav() {
         variants={navVariants}
         initial="hidden"
         animate="visible"
-        className="mx-4 mb-4 bg-zenith-surface/95 backdrop-blur-xl border border-zenith-surface rounded-2xl shadow-lg"
+        className="mx-2 mb-4 bg-zenith-surface/95 backdrop-blur-xl border border-zenith-surface rounded-2xl shadow-lg"
       >
-        <div className="relative flex items-center justify-around px-2 py-2">
+        <div className="relative flex items-center justify-between px-0 py-2">
           {/* Active indicator background */}
           <motion.div
             layoutId="navIndicator"
             className="absolute top-2 bottom-2 bg-zenith-cyan/15 border border-zenith-cyan/30 rounded-xl"
             style={{
-              width: `calc(${100 / navItems.length}% - 8px)`,
+              width: `calc(${100 / navItems.length}% - 4px)`,
             }}
             animate={{
-              left: `calc(${(activeIndex * 100) / navItems.length}% + 4px)`,
+              left: `calc(${(activeIndex * 100) / navItems.length}% + 2px)`,
             }}
             transition={{
               type: "spring",
@@ -119,7 +119,7 @@ export default function MobileNav() {
                 onClick={() => handleTap(index)}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
-                className={`relative flex flex-col items-center justify-center flex-1 py-3 px-2 rounded-xl z-10 transition-colors ${
+                className={`relative flex flex-col items-center justify-center flex-1 py-3 px-0.5 rounded-xl z-10 transition-colors ${
                   isActive ? "text-zenith-cyan" : "text-zenith-text/50 active:text-zenith-text/80"
                 }`}
                 aria-label={item.label}
